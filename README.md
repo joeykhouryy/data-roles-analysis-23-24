@@ -65,9 +65,9 @@ This step revolves around validating, handling, sorting and cleaning the data.
 - Observe data as a whole.
 - Investigate for errors and useless information.
 - Acknowledge null values
-## 3.1 Formatting Data Before Importing
+### 3.1 Formatting Data Before Importing
 Most columns such as salary, tools and more were formatted in Excel to the correct data types to be acknowledged by SQL.
-## 3.2 Importing the Dataset
+### 3.2 Importing the Dataset
 The Excel file was saved as a CSV file to be imported into SQL.
 
 Creating dataset within a project (infinite-deck-395615), dataset ID:
@@ -79,7 +79,7 @@ Creating table included within the project and datset, table ID:
 ```bash
 infinite-deck-395615.data_roles_23_24
 ```
-# 3.3 Previewing Table
+### 3.3 Previewing Table
 Previewing data
 ```bash
 --preview data
@@ -97,7 +97,7 @@ Preview indicates that blank columns were generated automatically
 
 ![image](https://github.com/joeykhouryy/data-roles-analysis-23-24/assets/144739073/0a89dce8-b476-4cee-9b31-451e12cf5803)
 
-## 3.4 Cleaning the Data
+### 3.4 Cleaning the Data
 Deleting automatically generated empty columns
 ```bash
 --cleaning the data
@@ -116,7 +116,7 @@ Renaming invalid column names
 ALTER TABLE infinite-deck-395615.data_roles_23_24.data_roles_uk RENAME COLUMN BachelorsDegree TO Degree;
 ALTER TABLE infinite-deck-395615.data_roles_23_24.data_roles_uk RENAME COLUMN BachelorsGrade TO Grade;
 ```
-## 3.5 Null Values
+### 3.5 Null Values
 ![image](https://github.com/joeykhouryy/data-roles-analysis-23-24/assets/144739073/43cc3ac2-b9e5-4b17-a1db-b3def9480df0)
 
 The dataset includes null values that cannot be deleted. These null values are just some inconsistencies in job descriptions that can be ignored. However, the jobs that do include data in such attributes, can provide useful information into analyzing the details of data analyst roles.
@@ -127,7 +127,7 @@ Performing analysis to obtain:
 - Percentage of roles that require university degrees
 - Percentage of roles that require a STEM degree if a degree is required
 
-## 4.1 Skill Counter
+### 4.1 Skill Counter
 ```bash
 --creating a table for counting the number of times each skill/tool appeared in role requirements
 
@@ -159,6 +159,8 @@ The analysis tells us from our limited sources, that SQL appeared to be the most
 - Tableu-15
 
 A bigger population of data will make this discovery more reliable. However, it can still be a reference for starters in need of learning skills to enter the field.
+
+### 4.2 Degree Percentage
 
 
 
