@@ -1,7 +1,7 @@
 # data-roles-analysis-23-24
-A data analysis project on the most valued analysis tools and skills to land data analysis job roles for 2023–2024 in the United Kingdom. It is intended for those in need of self-development and a job in the field of data analytics, such as myself. The project utilizes the Ask, Prepare, Process, Analyze, Share, and Act frameworks using Excel, SQL and Tableau. The primary Excel dataset consists of live 2023–2024 data analysis job roles with statistics about the companies, their offerings, skill requirements, and qualifications needed for the roles. The data cleaning and analysis steps were done using SQL. The visualizations were created using Tableu.
+A data analysis project on the most valued analysis tools and qualifications to land data analysis job roles for 2023–2024 in the United Kingdom. It is intended for those in need of self-development and a job in the field of data analytics, such as myself. The project utilizes the Ask, Prepare, Process, Analyze, Share, and Act frameworks using Excel, SQL, and Tableau. The primary Excel dataset consists of live 2023–2024 data analysis job roles with statistics about the companies, their offerings, skill requirements, and qualifications needed for the roles. The data cleaning and analysis steps were done using SQL. The visualizations were created using Tableau.
 
-The steps and outline are inspired by the Google Data Analytics Capstone Project published by Medium.com.
+The steps and outline are inspired by the Google Data Analytics Capstone Project published by <ins>[Medium]( https://medium.com/analytics-vidhya/this-case-study-is-for-google-data-analytics-gda-capstone-project-course-54047cccf7cb)</ins>
 
 ## 1 Ask
 During this phase, we establish the problem, outline the goals of our case study, and demonstrate the anticipated results.
@@ -42,7 +42,7 @@ Conduct a data analysis on 2023–2024 job listings in the data analytics domain
 - Some other useful analysis tools will not be collected nor covered in the analysis.
 ### 2.3 Is data ROCCC?
 ROCCC stands for Reliable, Original, Comprehensive, Current and Cited. It is used as a measurement for good data.
-- Reliable: Medium - 61 roles can be considered an adequate population.
+- Reliable: Medium/Low - 61 roles can be considered an adequate population.
 - Original: High - Primary data collected manually from several job portals.
 - Comprehensive: High - Data is very useful towards case study question
 - Current: High - Data is for 2023/2024
@@ -145,7 +145,7 @@ SUM(CASE WHEN Excel THEN 1 ELSE 0 END) AS excel_count,
 FROM `infinite-deck-395615.data_roles_23_24.data_roles_uk`
 ```
 
-A table was created for future visualizations. Cases were used to identify which of the following tools appear to be 'true' or '1' from the dataset. Meaning, they appeared in a job description.
+A table was created for future visualizations. Cases were used to identify which of the following tools appear to be 'true' or '1' from the dataset. meaning they appeared in a job description.
 
 The final table:
 
@@ -167,9 +167,9 @@ Analyzing the percentage of jobs that require a minimum bachelor's degree and if
 ```bash
 CREATE TABLE infinite-deck-395615.data_roles_23_24.degree_percentage AS
 SELECT
---pecentage of jobs that need Bachelors, rounded to nearest integer
+--percentage of jobs that need Bachelors, rounded to nearest integer
 ROUND(SUM(CASE WHEN MinimumQualification="Bachelors" THEN 1 ELSE 0 END)/COUNT(Company)*100, 0)AS degree_percentage,
---no degree percentage rounded to nearest integer
+No degree percentage rounded to nearest integer
 ROUND(SUM(CASE WHEN MinimumQualification="Bachelors" THEN 0 ELSE 1 END)/COUNT(Company)*100, 0)AS no_degree_percentage,
 --percentage of STEM degrees for jobs that need Bachelors, rounded to nearest integer
 ROUND(SUM(CASE WHEN Degree="STEM" THEN 1 ELSE 0 END)/SUM(CASE WHEN MinimumQualification="Bachelors" THEN 1 ELSE 0 END)*100,0) AS STEM_percentage
@@ -191,11 +191,15 @@ In this step, visualizations are created and published using Tableau Public.
 ### 5.1 Skill Chart
 ![image](https://github.com/joeykhouryy/data-roles-analysis-23-24/assets/144739073/9ce10d56-578e-4fc2-adf8-d9db442b787d)
 
-The above image is a bar chart arranged in descending order to indicate which skills are the most demanded. The simplicity and comprehensiveness are the reasons this type of chart was chosen. This chart visualizes the previous findings of the rankings of tools in a more visually appealing and understandable way.
+The above image is a bar chart arranged in descending order to indicate which skills are the most demanded. The simplicity and comprehensiveness are the reasons this type of chart was chosen. This chart visualizes the previous findings of the rankings of tools in a more visually appealing and understandable way. As mentioned previously,
+- SQL is evidently the most popular tool for data analytics. This could be due to its reputation for high speed and efficiency with huge amounts of data compared to other query languages. SQL is also simple, with a user-friendly and easily understandable syntax.
+- Excel came in second as the most popular spreadsheet tool. Most Microsoft appliances tend to be popularized in the work industry due to their reputation for success.
+- Python came in third place over R as the most demanded programming language. Python has a very simple syntax, which makes it an easy language to learn.
+- Finally, PowerBI came in fourth place, making it the more popular BI tool over Tableau. This leads back to the point about Microsoft, a very reliable source for applications.
 
 <ins>[Link to chart](https://public.tableau.com/views/DataRolesStats/Sheet1?:language=en-US&:display_count=n&:origin=viz_share_link)</ins>
 
-## 5.2 Degree Chart
+### 5.2 Degree Chart
 ![image](https://github.com/joeykhouryy/data-roles-analysis-23-24/assets/144739073/f7bf1346-6dac-4258-91f3-600ec895c0dc)
 ![image](https://github.com/joeykhouryy/data-roles-analysis-23-24/assets/144739073/3b007984-5518-4926-8efc-49bfd34aacc1)
 
@@ -205,19 +209,24 @@ A pie chart was generated for this condition, as it is the best for percentage c
 
 <ins>[Link to chart](https://public.tableau.com/views/DegreeChart/Sheet1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)</ins>
 
-## 5.3 STEM Chart
+### 5.3 STEM Chart
 Most of the jobs that require bachelor's degrees specifically ask for a STEM specification.
 
 ![image](https://github.com/joeykhouryy/data-roles-analysis-23-24/assets/144739073/ac4df88e-247a-4eac-adc6-0fcb5bad9f6c)
 ![image](https://github.com/joeykhouryy/data-roles-analysis-23-24/assets/144739073/54b6f8e3-3fba-4656-a62e-bac304f988a7)
 
-- 64% of roles that require a degree ask for STEM specifically
-- 36% accept anything else
+- 64% of roles that require a degree ask for STEM specifically. STEM degrees provide a very relevant skillset to the field of data. Mathematics, statistics, and programming are examples of courses such degrees provide. This may give employees a head start when attempting to learn the data analytics tools the company may provide.
+36% accept anything else
+
+<ins>[Link to chart](https://public.tableau.com/views/STEMChart/Sheet1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)</ins>
 
 ## 6 Act
 This section involves recommendations based on the analysis.
-## 6.1 Which tool should upcoming data analysts prioritize?
-One of the main points of this project was to determine which data analytics tool is most demanded by employers. The analysis shows that SQL is a widely recognized tool by several companies and should almost be treated like an obligatory skill to learn when entering the field of data. However, most of the other tools did receive a lot of numbers as well. Meaning, prioritization is key in such a situation. This can be used as a reference of which tools to learn first acording to how important it is to employers. The main question is why certain tools are required more than others. This can be due to many reasons
+### 6.1 Which tool should upcoming data analysts prioritize?
+One of the main points of this project was to determine which data analytics tool is most demanded by employers. The analysis shows that SQL is a widely recognized tool by several companies and should almost be treated like an obligatory skill to learn when entering the field of data. However, most of the other tools did receive a lot of numbers as well. Meaning, prioritization is key in such a situation. This can be used as a reference for which tools to learn first, depending on how important they are to employers. The main question is why certain tools are required more than others. Every tool has its advantages and disadvantages for companies. Factors like the type of data being processed and the size. The five known characteristics of big data, known as the 5 V's (velocity, volume, value, variety, and veracity), can be a method of determining the size of the data to know which tool to use. Some companies require spreadsheet skills at most for data analyst roles involving smaller datasets. Whereas, other roles may require the use of structured query languages that efficiently deal with larger amounts of data, such as SQL. The role itself can also be a factor in determining which tool to learn. If the job seeker is more into the artistic and creative side of data, then data visualization tools can be a proirity, as some firms have roles specifically for visualizations. If the job seeker is more into programming, then according to the bar chart in Section 5.1, Python is a popular and reliable choice to go for. The analysis in Section 5.1 also states that Microsoft applications tend to be in higher demand than others due to their reputation for reliability and success. Therefore, the job seeker can look into learning all the useful Microsoft tools for data analytics as a start.
+### 6.2 Does a bachelor's degree increase the chances of securing a data role?
+According to Section 5.2, the chart indicates that a bit more than half the roles require a degree. Meaning that a degree is more of a recommendation than a requirement. The field of data analytics can be a competitive space. The higher the qualification, the higher the chance of being recognized by employers. This can be a great addition to a portfolio, aside from the data tools mentioned previously. Section 5.3 also states that jobs that ask for degrees usually ask for a STEM specification (63% of the jobs that require degrees).
+
 
 
 
